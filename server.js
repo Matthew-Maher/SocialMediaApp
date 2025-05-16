@@ -13,7 +13,7 @@ app.set("views", path.resolve(__dirname, "templates"))
 app.use(bodyParser.urlencoded({extended:false}));
 
 process.stdin.setEncoding("utf8");
-//const databaseName = "Students";
+//const databaseName = "Students";--
 //const collectionName = "studentsCollection";
 //const uri = process.env.MONGO_CONNECTION_STRING;
 
@@ -21,11 +21,13 @@ app.get("/", (request, response)=>{
     response.render("login.ejs", {});
 })
 
-app.post("/processLogin", (request, response)=>{
+app.post("/home", (request, response)=>{
     let {user, password} = request.body;
     response.render("home.ejs", {user: user});
 
 })
+
+
 
 app.get("/register", (request, response)=>{
     response.render("register.ejs", {});
